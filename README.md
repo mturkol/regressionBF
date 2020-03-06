@@ -47,7 +47,7 @@ Call `linearReg_R2stat` without input arguments to see its help documentation:
 ```
 
 Call `linearReg_R2stat` with the the function handle '@getOptions' to return 
-the deafult options setting within a Struct:
+the default options setting within a Struct:
 
 ```
 >> [DefOpts] = linearReg_R2stat(@getOptions)
@@ -80,7 +80,7 @@ DefOpts =
    simple: 0 
 ```
 
-Compute the Bayes Factor by reproducing the first entry of Table 1 \[1\](http://dx.doi.org/10.1080/00273171.2012.734737) : 
+Compute the Bayes Factor by reproducing the first entry of Table 1 \[[1](http://dx.doi.org/10.1080/00273171.2012.734737) \] : 
 - Mandatory inputs: #observations (175), #predictors (4), R-squared (0.7109) ; 
 - using a prior scale value of '1'; 
 - utilizing the 'integral()' function for numerical integration with the  
@@ -106,7 +106,7 @@ Opts =
 ```
 
 Alternatively, following the mandatory inputs, we could pass a Struct for the 
-desired run Options ( i.e. using Model #6 with 'Local+Parasites' as in 
+desired run Options ( i.e. using Model #6 with the covariates 'Local+Parasites' as in 
 [1](http://dx.doi.org/10.1080/00273171.2012.734737) ): 
 ```
 >> [Bf60, RouderOpts] = linearReg_R2stat(175, 2, 0.2429, ...
