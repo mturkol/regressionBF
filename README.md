@@ -79,7 +79,7 @@ DefOpts =
    simple: 0 
 ```
 
-Compute the Bayes Factor by imitating the first entry of Table 1 [1] : 
+Compute the Bayes Factor by reproducing the first entry of Table 1 \[1\](http://dx.doi.org/10.1080/00273171.2012.734737) : 
 - Mandatory inputs: #observations (175), #predictors (4), R-squared (0.7109) ; 
 - using a prior scale value of '1'; 
 - utilizing the 'integral()' function for numerical integration with the  
@@ -135,12 +135,11 @@ RouderOpts =
   (in any order, use DEFAULT value if not provided as argument):
   | PAram    | Value                                                              |
   | -------- | ------------------------------------------------------------------ |
-  | `s`      | prior scale (real, positive, scalar). 0 < s <= 1                   |
-  |          |             (char-array) as in {'medium','wide','ultrawide'}       |
+  | `s`      | prior scale (real, positive, scalar). 0 < s <= 1;                  |
+  |          |          OR (char-array) as in {'medium','wide','ultrawide'};      |
   |          |                                  DEFAULT - 'medium' (0.3535).      |
   | `useVpa` | Logical to utilize (in Bf computation)                             |
-  |          | (true)  vpaintegral() for High-Precision Numerical Integration     |
-  |          |         using Variable-Precision Arithmetic;                       |
+  |          | (true)  vpaintegral() for High-Precision Numerical Integration using Variable-Precision Arithmetic;    |
   |          | (false) integral() for Vectorized Adaptive Quadrature - DEFAULT.   |                   
   | `lvlTol` | Level of tolerance (char-array) for convergence of integrator,     |
   |          | as in {'Mdefault', 'Rdefault', 'medium', 'low', 'verylow'}         |
