@@ -133,30 +133,30 @@ RouderOpts =
              by the predictors, excluding the intercept.
 ### Options
   (in any order, use DEFAULT value if not provided as argument):
-  | 's'     | prior scale (real, positive, scalar). 0 < s <= 1 
-                         OR 
-                         (char-array) as in {'medium','wide','ultrawide'}
-                                              DEFAULT - 'medium' (0.3535).
-  | 'useVpa'| Logical to utilize (in Bf computation)
-             (true)  vpaintegral() for High-Precision Numerical Integration 
-                     using Variable-Precision Arithmetic; 
-             (false) integral() for Vectorized Adaptive Quadrature - DEFAULT.                    
-  | 'lvlTol'| Level of tolerance (char-array) for convergence of integrator,
-             as in {'Mdefault', 'Rdefault', 'medium', 'low', 'verylow'}
-             'Mdefault' (relTol: 1e-6, absTol: 1e-10) - DEFAULT. 
-                          default tolerances for "integral()" func. in MATLAB;
-             'Rdefault' (relTol: eps('double')^0.25, eps('double')^0.25) 
-                          default tolerances for "integrate()" func. in R;
-             'medium'   (relTol: 1e-10, absTol: 1e-12);
-             'low'      (relTol: 50*eps, absTol: 1e-14);
-             'verylow'  (relTol: 5*eps, absTol: 1e-15).
-  | 'relTol'| Overwriting relative tolerance value (if) input by the user
-             (real, scalar double) [0, Inf]. DEFAULT - 1e-6.
-  | 'absTol'| Overwriting absolute tolerance value (if) input by the user
-             (real, scalar double) [0, Inf]. DEFAULT - 1e-10.
-  | 'simple'| Logical to return 
-             (true)  the raw Bayes factor 'Bf'; 
-             (false) log(Bf) in order to prevent possible overflow - DEFAULT.
+  | -------- | ------------------------------------------------------------------ |
+  | `s`      | prior scale (real, positive, scalar). 0 < s <= 1                   |
+  |          |             (char-array) as in {'medium','wide','ultrawide'}       |
+  |          |                                  DEFAULT - 'medium' (0.3535).      |
+  | `useVpa` | Logical to utilize (in Bf computation)                             |
+  |          | (true)  vpaintegral() for High-Precision Numerical Integration     |
+  |          |         using Variable-Precision Arithmetic;                       |
+  |          | (false) integral() for Vectorized Adaptive Quadrature - DEFAULT.   |                   
+  | `lvlTol` | Level of tolerance (char-array) for convergence of integrator,     |
+  |          | as in {'Mdefault', 'Rdefault', 'medium', 'low', 'verylow'}         |
+  |          | 'Mdefault' (relTol: 1e-6, absTol: 1e-10) - DEFAULT.                |
+  |          |              default tolerances for "integral()" func. in MATLAB;  |
+  |          | 'Rdefault' (relTol: eps('double')^0.25, eps('double')^0.25)        |
+  |          |              default tolerances for "integrate()" func. in R;      |
+  |          | 'medium'   (relTol: 1e-10, absTol: 1e-12);                         |
+  |          | 'low'      (relTol: 50*eps, absTol: 1e-14);
+  |          | 'verylow'  (relTol: 5*eps, absTol: 1e-15).
+  | `relTol` | Overwriting relative tolerance value (if) input by the user
+  |          | (real, scalar double) [0, Inf]. DEFAULT - 1e-6.
+  | `absTol` | Overwriting absolute tolerance value (if) input by the user
+  |          | (real, scalar double) [0, Inf]. DEFAULT - 1e-10.
+  | `simple` | Logical to return 
+  |          | (true)  the raw Bayes factor 'Bf'; 
+  |          | (false) log(Bf) in order to prevent possible overflow - DEFAULT.
 
 ## Documentation
 
