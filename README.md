@@ -126,36 +126,39 @@ RouderOpts =
 
 ### Inputs
   (required, in order): 
-   N       : #data-points/observations, (scalar int) N >= 3.
-   p       : #predictors excluding the intercept, (scalar int) 1 <= p < N-1.
-   R2      : Ordinary coeff. of determination, (real, scalar) 0 <= R2 < 1. 
-             Corresponds to the proportion of variance accounted for 
-             by the predictors, excluding the intercept.
+  | Input    | Description                                                      |
+  | -------- | ---------------------------------------------------------------- | 
+  | `N`      | #data-points/observations, (scalar int) N >= 3.                  |                
+  | `p`      | #predictors excluding the intercept, (scalar int) 1 <= p < N-1.  |
+  | `R2`     | Ordinary coeff. of determination, (real, scalar) 0 <= R2 < 1.    |    
+  |          | Corresponds to the proportion of variance accounted for          | 
+  |          | by the predictors, excluding the intercept.                      | 
+
 ### Options
   (in any order, use DEFAULT value if not provided as argument):
-  | Param    | Description, Default Value. Type/Value Tags                                            |
-  | -------- | ---------------------------------------------------------------------------------------|
-  | `s`      | prior scale factor, DEFAULT - 'medium'.                                                |
-  |          | (real, positive, scalar). 0 < s <= 1                                                  |
-  |          |          OR                                                                            |
-  |          | (char-array) as in {'medium','wide','ultrawide'}                                      |
-  | `useVpa` | Logical to utilize Variable-Precision Arithmetic in Bf computation, DEFAULT - 'false'. |
-  |          | true  - vpaintegral() for High-Precision Numerical Integration                        |
-  |          | false - integral() for Vectorized Adaptive Quadrature                                 |                   
-  | `lvlTol` | Level of tolerance for convergence of integrator, DEFAULT - 'Mdefault'.                |
-  |          | (char-array) as in {'Mdefault', 'Rdefault', 'medium', 'low', 'verylow'}                |
-  |          | 'Mdefault' - (relTol: 1e-6, absTol: 1e-10)                                              |
-  |          | 'Rdefault' - (relTol: eps('double')^0.25, absTol: eps('double')^0.25)                   |
-  |          | 'medium'   - (relTol: 1e-10, absTol: 1e-12)                                             |
-  |          | 'low'      - (relTol: 50*eps, absTol: 1e-14)                                            |
-  |          | 'verylow'  - (relTol: 5*eps, absTol: 1e-15)                                             |
-  | `relTol` | Relative tolerance value, DEFAULT - 1e-6.                                              |
-  |          | (real, scalar double) [0, Inf]                                                        |
-  | `absTol` | Absolute tolerance value, DEFAULT - 1e-10.                                             |
-  |          | (real, scalar double) [0, Inf]                                                        |
-  | `simple` | Logical to return the Bf in raw form, DEFAULT - false.                                 | 
-  |          | true  -  the raw Bayes factor 'Bf'                                                     |
-  |          | false -  log(Bf) in order to prevent possible overflow;                                 |
+  | Parameter    | Description, Default Value. Type/Value Tags                                            |
+  | ------------ | ---------------------------------------------------------------------------------------|
+  | `'s'`        | prior scale factor, DEFAULT - 'medium'.                                                |
+  |              | (real, positive, scalar) (0, 1]                                                  |
+  |              |          OR                                                                            |
+  |              | (char-array) as in {'medium','wide','ultrawide'}                                      |
+  | `'useVpa'`   | Logical to utilize Variable-Precision Arithmetic in Bf computation, DEFAULT - 'false'. |
+  |              | true  - vpaintegral() for High-Precision Numerical Integration                        |
+  |              | false - integral() for Vectorized Adaptive Quadrature                                 |                   
+  | `'lvlTol'`   | Level of tolerance for convergence of integrator, DEFAULT - 'Mdefault'.                |
+  |              | (char-array) as in {'Mdefault', 'Rdefault', 'medium', 'low', 'verylow'}                |
+  |              | 'Mdefault' - (relTol: 1e-6, absTol: 1e-10)                                              |
+  |              | 'Rdefault' - (relTol: eps('double')^0.25, absTol: eps('double')^0.25)                   |
+  |              | 'medium'   - (relTol: 1e-10, absTol: 1e-12)                                             |
+  |              | 'low'      - (relTol: 50*eps, absTol: 1e-14)                                            |
+  |              | 'verylow'  - (relTol: 5*eps, absTol: 1e-15)                                             |
+  | `'relTol'`   | Relative tolerance value, DEFAULT - 1e-6.                                              |
+  |              | (real, scalar double) [0, Inf]                                                        |
+  | `'absTol'`   | Absolute tolerance value, DEFAULT - 1e-10.                                             |
+  |              | (real, scalar double) [0, Inf]                                                        |
+  | `'simple'`   | Logical to return the Bf in raw form, DEFAULT - false.                                 | 
+  |              | true  -  the raw Bayes factor 'Bf'                                                     |
+  |              | false -  log(Bf) in order to prevent possible overflow;                                 |
 
 ## Documentation
 
