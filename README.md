@@ -109,7 +109,7 @@ Opts =
 
 Alternatively, following the mandatory inputs, we could pass a Struct for the 
 desired run Options ( i.e. using Model #6 with the covariates 'Local+Parasites' as in 
-\[ [1](http://dx.doi.org/10.1080/00273171.2012.734737) \]): 
+\[ [1](http://dx.doi.org/10.1080/00273171.2012.734737) \] ): 
 ```
 >> [Bf60, RouderOpts] = linearReg_R2stat(175, 2, 0.2429, ...
                         struct('s', 1, 'lvlTol', 'Rdefault', 'simple', true) )
