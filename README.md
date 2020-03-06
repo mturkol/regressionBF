@@ -133,11 +133,13 @@ RouderOpts =
              by the predictors, excluding the intercept.
 ### Options
   (in any order, use DEFAULT value if not provided as argument):
-  | PAram    | Value                                                              |
+  | Param    | Description, Value                                                 |
   | -------- | ------------------------------------------------------------------ |
-  | `s`      | prior scale (real, positive, scalar). 0 < s <= 1;                  |
-  |          |          OR (char-array) as in {'medium','wide','ultrawide'};      |
-  |          |                                  DEFAULT - 'medium' (0.3535).      |
+  | `s`      | prior scale -factor                                                |
+  |          | (real, positive, scalar). 0 < s <= 1;                              |
+  |          |          OR                                                        |
+  |          | (char-array) as in {'medium','wide','ultrawide'};                  |
+  |          | DEFAULT - 'medium' (0.3535).                                       |
   | `useVpa` | Logical to utilize (in Bf computation)                             |
   |          | (true)  vpaintegral() for High-Precision Numerical Integration using Variable-Precision Arithmetic;    |
   |          | (false) integral() for Vectorized Adaptive Quadrature - DEFAULT.   |                   
