@@ -83,10 +83,10 @@ DefOpts =
 Compute the Bayes Factor by reproducing the first entry of Table 1. \[ [1](http://dx.doi.org/10.1080/00273171.2012.734737) \] : 
 - Mandatory inputs: #observations (175), #predictors (4), R-squared (0.7109), 
 - using a prior scale value of '1',
-- utilizing the 'integral()' function for numerical integration with the  
-same relative and absolute tolerance values as in the built-in 
-'integrate()' function found in R;  
-- to return the raw (simple) Bf value along with the Options of computation 
+- utilizing the 'integral()' function for numerical integration with the 
+same relative and absolute tolerance values as in the built-in 'integrate()' 
+function found in R,  
+- to return the raw (simple) Bf value along with the Options of computation.
 
 ```
 >> [rawBf, Opts] = linearReg_R2stat(175, 4, 0.7109, ...
