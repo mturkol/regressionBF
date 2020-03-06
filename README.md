@@ -1,26 +1,36 @@
-# LPSD Algorithm
+# Bayes Factors for Model Selection in Multivariate Regression Designs
 
-> lpsd - a program to calculate spectral estimates by Michael Troebs  and
-> Gerhard Heinzel, (c) 2003, 2004. Revisions and bug-fixes by Mert Türkol, 2019, 2020.
+> linearReg_R2stat.m - a function to compute the Null-based Bayes Factor (BF)
+> for a Multivariate Regression design. 
+> Written by [Mert Türkol](mailto:mturkol_at_gmail_dot_com), (c) 2019.
 
-This repository provides the implementation of the LPSD algorithm for spectrum
-and spectral density estimation from long time series by Fourier transforms at
-frequencies equally spaced on a logarithmic axis.
+linearReg_R2stat computes the BF (ratio between marginal likelihoods) by 
+comparing a target regression model to the Null (intercept only). It can be used 
+without having access to the full dataset, by utilizing only the ordinary R^2 
+(coeff. of determination) test statistic obtained as a result of the underlying 
+regression design.
 
-It is written in C by Michael Tröbs and Gerhard Heinzel. 
-Improvements on accuracy, bug-fixes and corrections in algorithm flow were  made 
-by [Mert Türkol](mailto:mturkol_at_gmail_dot_com).
+Methodology: Laplace approximation to BF under Zellner-Siow prior 
+(on model params) as a mixture of g-priors is utilized. That is, an inverse-gamma  
+IG(1/2, s^2*N/2) prior on 'g', where 's' as in (0,1] is the scale factor 
+hyper-parameter. Based on user choice, the numerical integration of the 
+likelihood is carried out via Vectorized Adaptive Quadrature or 
+High-Precision Numerical Integration using Variable-Precision Arithmetic.
+
+This repository provides the MATLAB implementation of the methodology covered in
+[1] & [2] as a package in R language, under the name BayesFactor. A few extra 
+functionality that do not exist in vanilla BayesFactor package such as 
+variable input tolerance(s) for integrator convergence and high-precision
+numerical integration are included here.
 
 
 ## Table of Contents
 
 <!-- vim-markdown-toc GFM -->
 
-* [Install](#install)
-    * [Requirements](#requirements)
-    * [Compilation](#compilation)
 * [Usage](#usage)
     * [Example](#example)
+    * [Inputs](#inputs)
     * [Options](#options)
 * [Documentation](#documentation)
     * [Theoretical Background](#theoretical-background)
@@ -72,55 +82,54 @@ processed with `lpsd`:
 ```
 $ ./lpsd-exec --input=example/test.dat
 ```
-
+### Inputs
+  (required, in order): 
+   N       : #data-points/observations, (scalar int) N >= 3.
+   p       : #predictors excluding the intercept, (scalar int) 1 <= p < N-1.
+   R2      : Ordinary coeff. of determination, (real, scalar) 0 <= R2 < 1. 
+             Corresponds to the proportion of variance accounted for 
+             by the predictors, excluding the intercept.
 ### Options
-
-The command options `lpsd` understands:
-
-| Short | Long                     | Description                                     |
-| :---: | :----------------------- | :---------------------------------------------- |
-| `-a`  | `--davg=# of des. avgs`  | desired number of averages                      |
-| `-A`  | `--colA=# of column   `  | number of column to process                     |
-| `-b`  | `--tmin=tmin          `  | start time in seconds                           |
-| `-B`  | `--colB=# of column    ` | process column B - column A                     |
-| `-c`  | `--param=param         ` | parameter string                                |
-| `-d`  | `--usedefs             ` | use defaults                                    |
-| `-e`  | `--tmax=tmax           ` | stop time in seconds                            |
-| `-f`  | `--fsamp=sampl. freq.  ` | sampling frequency in Hertz                     |
-| `-g`  | `--gnuplot=gnuplot file` | gnuplot file name                               |
-| `-h`  | `--method=0, 1         ` | method for frequency calculation: 0-LPSD, 1-FFT |
-| `-i`  | `--input=input file   `  | input file name                                 |
-| `-j`  | `--fres=FFT freq. res.`  | Frequency resolution for FFT                    |
-| `-k`  | `--sbin=sbin         `   | smallest frequency bin                          |
-| `-l`  | `--ovlp=overlap       `  | segment overlap in %                            |
-| `-m`  | `--mavg=# of min. avgs ` | minimum number of averages                      |
-| `-n`  | `--nspec=# in spectr.`   | number of values in spectrum                    |
-| `-o`  | `--output=output file `  | output file name                                |
-| `-p`  | `--psll=psll         `   | peak side lobe level in dB                      |
-| `-q`  | `--quiet          `      | Don't produce output on screen                  |
-| `-r`  | `--lr=0,1         `      | linear regression; 1 yes, 0 no                  |
-| `-s`  | `--fmin=fmin     `       | start frequency in spectrum                     |
-| `-t`  | `--fmax=fmax      `      | stop frequency in spectrum                      |
-| `-T`  | `--time          `       | file contains time in s in first column         |
-| `-u`  | `--gnuterm=gnuterm  `    | number of gnuplot terminal                      |
-| `-w`  | `--window=wind. func.`   | window function; -2 Kaiser, -1 flat top, 0..30  |
-| `-x`  | `--scale=factor    `     | scaling factor                                  |
-| `-?`  | `--help           `      | Give this help list                             |
-| `-V`  | `--version    `          | Print program version                           |
+  (in any order, use DEFAULT value if not provided as argument):
+   's'     : prior scale (real, positive, scalar). 0 < s <= 1 
+                         OR 
+                         (char-array) as in {'medium','wide','ultrawide'}
+                                              DEFAULT - 'medium' (0.3535).
+   'useVpa': Logical to utilize (in Bf computation)
+             (true)  vpaintegral() for High-Precision Numerical Integration 
+                     using Variable-Precision Arithmetic; 
+             (false) integral() for Vectorized Adaptive Quadrature - DEFAULT.                    
+   'lvlTol': Level of tolerance (char-array) for convergence of integrator,
+             as in {'Mdefault', 'Rdefault', 'medium', 'low', 'verylow'}
+             'Mdefault' (relTol: 1e-6, absTol: 1e-10) - DEFAULT. 
+                          default tolerances for "integral()" func. in MATLAB;
+             'Rdefault' (relTol: eps('double')^0.25, eps('double')^0.25) 
+                          default tolerances for "integrate()" func. in R;
+             'medium'   (relTol: 1e-10, absTol: 1e-12);
+             'low'      (relTol: 50*eps, absTol: 1e-14);
+             'verylow'  (relTol: 5*eps, absTol: 1e-15).
+   'relTol': Overwriting relative tolerance value (if) input by the user
+             (real, scalar double) [0, Inf]. DEFAULT - 1e-6.
+   'absTol': Overwriting absolute tolerance value (if) input by the user
+             (real, scalar double) [0, Inf]. DEFAULT - 1e-10.
+   'simple': Logical to return 
+             (true)  the raw Bayes factor 'Bf'; 
+             (false) log(Bf) in order to prevent possible overflow - DEFAULT.
 
 ## Documentation
 
 ### Theoretical Background
 
-For a more theoretical understanding read the following publication:
+For a more theoretical understanding read the following publications:
 
-  * [https://doi.org/10.1016/j.measurement.2005.10.010](https://doi.org/10.1016/j.measurement.2005.10.010)
+  * [https://doi.org/10.1080/00273171.2012.734737](http://dx.doi.org/10.1080/00273171.2012.734737)
+  * 
 
 ### File Overview
 
-| File          | Description                              |
-| ------------- | ---------------------------------------- |
-| `ArgParser.c` | Parses the given arguments               |
+| File                 | Description                           |
+| -------------------- | ------------------------------------- |
+| `linearReg_R2stat.m` | Main function to compute Bayes Factor |
 | `ask.c`       | Manages user input in interactive mode   |
 | `calibrate.c` |                                          |
 | `CHANGELOG`   | Changelog                                |
