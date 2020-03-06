@@ -1,7 +1,7 @@
-# Bayes Factors for Model Selection in Multivariate Regression Designs
+# Bayes Factors for Model Selection in Multivariate Regression
 
-> linearReg_R2stat.m - a function to compute the Null-based Bayes Factor (BF)
-> for a Multivariate Regression design. 
+> [linearReg_R2stat](/linearReg_R2stat.m) - a function to compute the Null-based 
+> Bayes Factor (BF) for a Multivariate Regression design. 
 > Written by [Mert Türkol](mailto:mturkol_at_gmail_dot_com), (c) 2019.
 
 linearReg_R2stat computes the BF (ratio between marginal likelihoods) by 
@@ -11,16 +11,16 @@ without having access to the full dataset, by utilizing only the ordinary R^2
 regression design.
 
 Methodology: Laplace approximation to BF under Zellner-Siow prior 
-(on model params) as a mixture of g-priors is utilized. That is, an inverse-gamma  
+(on model params) as a mixture of g-priors is utilized. That is, an inverse-gamma 
 IG(1/2, s^2*N/2) prior on 'g', where 's' as in (0,1] is the scale factor 
-hyper-parameter. Based on user choice, the numerical integration of the 
-likelihood is carried out via Vectorized Adaptive Quadrature or 
-High-Precision Numerical Integration using Variable-Precision Arithmetic.
+hyper-parameter. Based on user choice, numerical integration of the likelihood 
+is carried out via Vectorized Adaptive Quadrature or High-Precision Numerical 
+Integration using Variable-Precision Arithmetic.
 
 This repository provides the MATLAB implementation of the methodology covered in
-[1] & [2] as a package in R language, under the name BayesFactor. A few extra 
-functionality that do not exist in vanilla BayesFactor package such as 
-variable input tolerance(s) for integrator convergence and high-precision
+[1] & [2] which resulted in a package in R-language, under the name BayesFactor. 
+A few extra functionality that do not exist in vanilla BayesFactor package such 
+as variable input tolerance(s) for integrator convergence and high-precision 
 numerical integration are included here.
 
 
@@ -30,8 +30,6 @@ numerical integration are included here.
 
 * [Usage](#usage)
     * [Example](#example)
-    * [Inputs](#inputs)
-    * [Options](#options)
 * [Documentation](#documentation)
     * [Theoretical Background](#theoretical-background)
     * [File Overview](#file-overview)
@@ -39,34 +37,30 @@ numerical integration are included here.
 
 <!-- vim-markdown-toc -->
 
-## Install
-
-### Requirements
-
-Make sure you have `fftw3` installed.
-
-### Compilation
-
-Make use of the `Makefile` to compile the `lpsd-exec` by typing:
-
-```
-$ make
-```
-
 ## Usage
 
-`lpsd` can be controlled by command line options or interactively. 
+Call `linearReg_R2stat` without input arguments to see its help documentation: 
 
 ```
-$ ./lpsd-exec [OPTION...] 
+>> linearReg_R2stat()
 ```
 
-Run `lpsd-exec` with the `help` option for a good overview of lpsd's
-functionality and options:
+Call `linearReg_R2stat` with the the function handle '@getOptions' to return 
+the deafult options setting within a Struct:
 
 ```
-$ ./lpsd-exec --help
+>> [DefOpts] = linearReg_R2stat(@getOptions)
 ```
+
+Compute and return Bayes factor 'Bf' using 'Options' as a single Struct or 
+name-value pairs passed as varargin: 
+
+```
+>> linearReg_R2stat(N, p, R2, varargin) 
+```
+
+Please see [linearReg_R2stat](/linearReg_R2stat.m) for a detailed list of input 
+arguments and run Options. 
 
 ### Example
 
