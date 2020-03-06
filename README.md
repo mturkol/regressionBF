@@ -133,13 +133,13 @@ RouderOpts =
              by the predictors, excluding the intercept.
 ### Options
   (in any order, use DEFAULT value if not provided as argument):
-  | Param    | Description, Value                                                 |
+  | Param    | Description, Default Value. (Type) Value Tags                      |
   | -------- | ------------------------------------------------------------------ |
-  | `s`      | prior scale -factor                                                |
+  | `s`      | prior scale factor, DEFAULT - 'medium                              |
   |          | (real, positive, scalar). 0 < s <= 1;                              |
   |          |          OR                                                        |
   |          | (char-array) as in {'medium','wide','ultrawide'};                  |
-  |          | DEFAULT - 'medium' (0.3535).                                       |
+  |          |                                                                    |
   | `useVpa` | Logical to utilize (in Bf computation)                             |
   |          | (true)  vpaintegral() for High-Precision Numerical Integration using Variable-Precision Arithmetic;    |
   |          | (false) integral() for Vectorized Adaptive Quadrature - DEFAULT.   |                   
