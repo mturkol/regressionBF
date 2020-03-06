@@ -174,9 +174,8 @@ For a more theoretical understanding read the following publications:
 | File                 | Description                                  |
 | -------------------- | -------------------------------------------- |
 | `linearReg_R2stat.m` | Main function that computes the Bayes Factor |
-| `logUtility.m`       | Manages user input in interactive mode       |
+| `logUtility.m`       | Computes accurately various logarithm/exponential related expressions via utility functions |
 | `dinvgamma.m`        | Computes the derivatives of the log density of inverse gamma distribution |
 | `lngamma.m`          | Computes the complex ln(Gamma) function      |
 | `README.md`          | This README.md                               |
 | `LICENSE`            | License documentation                        |
-
