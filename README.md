@@ -133,6 +133,7 @@ RouderOpts =
              by the predictors, excluding the intercept.
 ### Options
   (in any order, use DEFAULT value if not provided as argument):
+  | PAram    | Value                                                              |
   | -------- | ------------------------------------------------------------------ |
   | `s`      | prior scale (real, positive, scalar). 0 < s <= 1                   |
   |          |             (char-array) as in {'medium','wide','ultrawide'}       |
