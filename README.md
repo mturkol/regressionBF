@@ -64,18 +64,65 @@ arguments and run Options.
 
 ### Example
 
-Create a test dataset with:
+Return the default Options in a Struct:
 
 ```
-$ make example-data
+>> [DefOpts] = linearReg_R2stat(@getOptions) 
+DefOpts = 
+  struct with fields:
+
+        s: 0.353553390593274
+   useVpa: 0
+   lvlTol: 'Mdefault'
+   relTol: 1e-06
+   absTol: 1e-10
+   simple: 0 
 ```
 
-This will create the file `test.dat` in the directory `example` which can be
-processed with `lpsd`:
+Compute the Bayes Factor by imitating the first entry of Table 1 [1] : 
+- Mandatory inputs: #observations (175), #predictors (4), R-squared (0.7109) ; 
+- using a prior scale value of '1'; 
+- utilizing the 'integral()' function for numerical integration with the  
+  same relative and absolute tolerance values as in the built-in  
+  'integrate()' function found in R;  
+- to return the raw (simple) Bf value along with the Options of computation 
 
 ```
-$ ./lpsd-exec --input=example/test.dat
+>> [rawBf, Opts] = linearReg_R2stat(175, 4, 0.7109, ...
+                   's', 1, 'lvlTol', 'Rdefault', 'simple', true)
+                   
+rawBf =
+        3.54443032945501e+41
+Opts = 
+  struct with fields:
+
+        s: 1
+   useVpa: 0
+   lvlTol: 'Rdefault'
+   relTol: 0.0001220703125
+   absTol: 0.0001220703125
+   simple: 1 
 ```
+
+Alternatively,following the mandatory input, we could pass a Struct for the 
+desired run Options ( for Model #6 with 'Local+Parasites' as in \[1\] ): 
+```
+>> [Bf60, RouderOpts] = linearReg_R2stat(175, 2, 0.2429, ...
+                      struct('s', 1, 'lvlTol', 'Rdefault', 'simple', true) )
+                   
+Bf60 =
+          122607538.194857
+RouderOpts = 
+  struct with fields:
+
+         s: 1
+    useVpa: 0
+    lvlTol: 'Rdefault'
+    relTol: 0.0001220703125
+    absTol: 0.0001220703125
+    simple: 1 
+```
+
 ### Inputs
   (required, in order): 
    N       : #data-points/observations, (scalar int) N >= 3.
@@ -116,7 +163,7 @@ $ ./lpsd-exec --input=example/test.dat
 
 For a more theoretical understanding read the following publications:
 
-  * [https://doi.org/10.1080/00273171.2012.734737](http://dx.doi.org/10.1080/00273171.2012.734737)
+  * \[1\] [https://doi.org/10.1080/00273171.2012.734737](http://dx.doi.org/10.1080/00273171.2012.734737)
   * 
 
 ### File Overview
