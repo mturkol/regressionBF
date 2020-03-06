@@ -98,6 +98,24 @@ function [varargout] = linearReg_R2stat(varargin)
 %      relTol: 0.0001220703125
 %      absTol: 0.0001220703125
 %      simple: 1 
+%
+%   Alternatively, following the mandatory inputs, we could pass a Struct for 
+%   the desired run Options (i.e. using Model #6 with the covariates 
+%   'Local+Parasites' as in [1] ):
+% 
+%   >> [Bf60, RouderOpts] = linearReg_R2stat(175, 2, 0.2429, ...
+%                         struct('s', 1, 'lvlTol', 'Rdefault', 'simple', true) )                   
+%   Bf60 =
+%          122607538.194857
+%   RouderOpts = 
+%     struct with fields:
+%
+%           s: 1
+%      useVpa: 0
+%      lvlTol: 'Rdefault'
+%      relTol: 0.0001220703125
+%      absTol: 0.0001220703125
+%      simple: 1  
 % ==============================================================================
 % Comments: The algorithm behind 'linearReg_R2stat.m' was developed based on 
 %           /BayesFactor_0.9.12-4.2/BayesFactor/R/linearReg_R2stat.R

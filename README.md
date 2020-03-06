@@ -80,7 +80,7 @@ DefOpts =
    simple: 0 
 ```
 
-Compute the Bayes Factor by reproducing the first entry of Table 1 \[[1](http://dx.doi.org/10.1080/00273171.2012.734737) \] : 
+Compute the Bayes Factor by reproducing the first entry of Table 1. \[ [1](http://dx.doi.org/10.1080/00273171.2012.734737) \] : 
 - Mandatory inputs: #observations (175), #predictors (4), R-squared (0.7109) ; 
 - using a prior scale value of '1'; 
 - utilizing the 'integral()' function for numerical integration with the  
@@ -171,26 +171,12 @@ For a more theoretical understanding read the following publications:
 
 ### File Overview
 
-| File                 | Description                           |
-| -------------------- | ------------------------------------- |
-| `linearReg_R2stat.m` | Main function to compute Bayes Factor |
-| `ask.c`       | Manages user input in interactive mode   |
-| `calibrate.c` |                                          |
-| `CHANGELOG`   | Changelog                                |
-| `config.c`    | Configure lpsd at runtime via a textfile |
-| `debug.c`     | Debugging                                |
-| `errors.c`    | error messages                           |
-| `genwin.c`    | compute window functions                 |
-| `goodn.c`     |                                          |
-| `IO.c`        | handle all input/output for `lpsd.c`     |
-| `libargp.a`   | static library for argument parsing      |
-| `lpsd`        | Executable                               |
-| `lpsd.c`      |                                          |
-| `lpsd.cfg`    | Configuration file                       |
-| `lpsd-exec.c` |                                          |
-| `Makefile`    | To build the executable                  |
-| `misc.c`      |                                          |
-| `netlibi0.c`  |                                          |
-| `README.md`   | This README.md                           |
-| `StrParser.c` |                                          |
-| `tics.c`      |                                          |
+| File                 | Description                                  |
+| -------------------- | -------------------------------------------- |
+| `linearReg_R2stat.m` | Main function that computes the Bayes Factor |
+| `logUtility.m`       | Manages user input in interactive mode       |
+| `dinvgamma.m`        | Computes the derivatives of the log density of inverse gamma distribution |
+| `lngamma.m`          | Computes the complex ln(Gamma) function      |
+| `README.md`          | This README.md                               |
+| `LICENSE`            | License documentation                        |
+
