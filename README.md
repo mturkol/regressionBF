@@ -29,11 +29,12 @@ numerical integration are included here.
 <!-- vim-markdown-toc GFM -->
 
 * [Usage](#usage)
-    * [Example](#example)
+    * [Examples](#examples)
+    * [Inputs](#inputs) 
+    * [Options](#options)    
 * [Documentation](#documentation)
     * [Theoretical Background](#theoretical-background)
     * [File Overview](#file-overview)
-* [FAQ](#faq)
 
 <!-- vim-markdown-toc -->
 
@@ -62,7 +63,7 @@ name-value pairs passed as varargin:
 Please see [linearReg_R2stat](/linearReg_R2stat.m) for a detailed list of input 
 arguments and run Options. 
 
-### Example
+### Examples
 
 Return the default Options in a Struct:
 
@@ -131,8 +132,7 @@ RouderOpts =
   | `N`      | #data-points/observations, (scalar int) N >= 3.                  |                
   | `p`      | #predictors excluding the intercept, (scalar int) 1 <= p < N-1.  |
   | `R2`     | Ordinary coeff. of determination, (real, scalar) 0 <= R2 < 1.    |    
-  |          | Corresponds to the proportion of variance accounted for          | 
-  |          | by the predictors, excluding the intercept.                      | 
+  |          | Corresponds to the proportion of variance accounted for by the predictors, excluding the intercept. | 
 
 ### Options
   (in any order, use DEFAULT value if not provided as argument):
@@ -194,32 +194,3 @@ For a more theoretical understanding read the following publications:
 | `README.md`   | This README.md                           |
 | `StrParser.c` |                                          |
 | `tics.c`      |                                          |
-
-## FAQ
-
-* Hot can I enable `lpsd` configuration via config file?
-
-To enable configuration of lpsd via `lpsd.cfg`, do one of the following under
-linux, use the command
-
-```
-$ export LPSDCFN=/your/dir/lpsdconfigfilename
-```
-
-**Example:**
-
-```
-$ export LPSDCFN=/home/micha/lpsd.cfg
-```
-
-under DOS, use the command
-
-```
-$ set LPSDNCFN=c:\your\dir\lpsdconfigfilename
-```
-
-Example:
-
-```
-$ set LPSDCFN=c:\tools\lpsd.cfg
-```
