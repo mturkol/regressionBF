@@ -18,7 +18,7 @@ is carried out via Vectorized Adaptive Quadrature or High-Precision Numerical
 Integration using Variable-Precision Arithmetic.
 
 This repository provides the MATLAB implementation of the methodology covered in
-[1] & [2] which resulted in a package in R-language, under the name BayesFactor. 
+[1](http://dx.doi.org/10.1080/00273171.2012.734737) & [2] which resulted in a package in R-language, under the name BayesFactor. 
 A few extra functionality that do not exist in vanilla BayesFactor package such 
 as variable input tolerance(s) for integrator convergence and high-precision 
 numerical integration are included here.
@@ -104,11 +104,12 @@ Opts =
    simple: 1 
 ```
 
-Alternatively,following the mandatory input, we could pass a Struct for the 
-desired run Options ( for Model #6 with 'Local+Parasites' as in \[1\] ): 
+Alternatively, following the mandatory inputs, we could pass a Struct for the 
+desired run Options ( i.e. using Model #6 with 'Local+Parasites' as in 
+[1](http://dx.doi.org/10.1080/00273171.2012.734737) ): 
 ```
 >> [Bf60, RouderOpts] = linearReg_R2stat(175, 2, 0.2429, ...
-                      struct('s', 1, 'lvlTol', 'Rdefault', 'simple', true) )
+                        struct('s', 1, 'lvlTol', 'Rdefault', 'simple', true) )
                    
 Bf60 =
           122607538.194857
@@ -132,15 +133,15 @@ RouderOpts =
              by the predictors, excluding the intercept.
 ### Options
   (in any order, use DEFAULT value if not provided as argument):
-   's'     : prior scale (real, positive, scalar). 0 < s <= 1 
+  | 's'     | prior scale (real, positive, scalar). 0 < s <= 1 
                          OR 
                          (char-array) as in {'medium','wide','ultrawide'}
                                               DEFAULT - 'medium' (0.3535).
-   'useVpa': Logical to utilize (in Bf computation)
+  | 'useVpa'| Logical to utilize (in Bf computation)
              (true)  vpaintegral() for High-Precision Numerical Integration 
                      using Variable-Precision Arithmetic; 
              (false) integral() for Vectorized Adaptive Quadrature - DEFAULT.                    
-   'lvlTol': Level of tolerance (char-array) for convergence of integrator,
+  | 'lvlTol'| Level of tolerance (char-array) for convergence of integrator,
              as in {'Mdefault', 'Rdefault', 'medium', 'low', 'verylow'}
              'Mdefault' (relTol: 1e-6, absTol: 1e-10) - DEFAULT. 
                           default tolerances for "integral()" func. in MATLAB;
@@ -149,11 +150,11 @@ RouderOpts =
              'medium'   (relTol: 1e-10, absTol: 1e-12);
              'low'      (relTol: 50*eps, absTol: 1e-14);
              'verylow'  (relTol: 5*eps, absTol: 1e-15).
-   'relTol': Overwriting relative tolerance value (if) input by the user
+  | 'relTol'| Overwriting relative tolerance value (if) input by the user
              (real, scalar double) [0, Inf]. DEFAULT - 1e-6.
-   'absTol': Overwriting absolute tolerance value (if) input by the user
+  | 'absTol'| Overwriting absolute tolerance value (if) input by the user
              (real, scalar double) [0, Inf]. DEFAULT - 1e-10.
-   'simple': Logical to return 
+  | 'simple'| Logical to return 
              (true)  the raw Bayes factor 'Bf'; 
              (false) log(Bf) in order to prevent possible overflow - DEFAULT.
 
@@ -164,7 +165,7 @@ RouderOpts =
 For a more theoretical understanding read the following publications:
 
   * \[1\] [https://doi.org/10.1080/00273171.2012.734737](http://dx.doi.org/10.1080/00273171.2012.734737)
-  * 
+  * \[2\] [10.1198/016214507000001337Liang](https://www.tandfonline.com/doi/abs/10.1198/016214507000001337)
 
 ### File Overview
 
