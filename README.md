@@ -19,12 +19,7 @@ Integration using Variable-Precision Arithmetic.
 
 This repository provides the MATLAB implementation of the methodology covered in
 \[ [1](http://dx.doi.org/10.1080/00273171.2012.734737) \] & 
-\[ [2](https://www.tandfonline.com/doi/abs/10.1198/016214507000001337) \] which 
-resulted in a package in R-language, under the name BayesFactor. A few extra 
-functionality that do not exist in vanilla BayesFactor package such as variable 
-input tolerance(s) for integrator convergence and high-precision numerical 
-integration are included here.
-
+\[ [2](https://www.tandfonline.com/doi/abs/10.1198/016214507000001337) \].
 
 ## Table of Contents
 
