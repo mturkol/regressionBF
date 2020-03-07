@@ -138,7 +138,10 @@ RouderOpts =
   | `'s'`        | prior scale factor, DEFAULT - 'medium'.                                                |
   |              | (real, positive, scalar) (0, 1]                                                        |
   |              |          OR                                                                            |
-  |              | (char-array) as in {'medium','wide','ultrawide'}                                       |
+  |              | (char-array) as in {'medium', 'wide', 'ultrawide'}					  |
+  |              | 'medium'    - 0.3535									  |
+  |              | 'wide'      - 0.5000								          |
+  |              | 'ultrawide' - 0.7071									  |                                       
   | `'useVpa'`   | Logical to utilize Variable-Precision Arithmetic in Bf computation, DEFAULT - 'false'. |
   |              | true  - vpaintegral() for High-Precision Numerical Integration                         |
   |              | false - integral() for Vectorized Adaptive Quadrature                                  |                
