@@ -164,8 +164,8 @@ RouderOpts =
 
 For a more theoretical understanding read the following publications:
 
-  * \[1\] [https://doi.org/10.1080/00273171.2012.734737](http://dx.doi.org/10.1080/00273171.2012.734737)
-  * \[2\] [10.1198/016214507000001337Liang](https://www.tandfonline.com/doi/abs/10.1198/016214507000001337)
+  * \[1\] [Rouder, J.N. and Morey, R.D., 2012. Default Bayes factors for model selection in regression](http://dx.doi.org/10.1080/00273171.2012.734737)
+  * \[2\] [Liang, F., Paulo, R., Molina, G., Clyde, M.A. and Berger, J.O., 2008. Mixtures of g priors for Bayesian variable selection](https://www.tandfonline.com/doi/abs/10.1198/016214507000001337)
 
 ### File Overview
 
