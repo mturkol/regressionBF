@@ -13,7 +13,7 @@ regression design.
 
 Methodology: Laplace approximation to BF under Zellner-Siow prior 
 (on model parameters) as a mixture of g-priors is utilized. That is, an 
-inverse-gamma IG(1/2, s^2*N/2) prior on 'g', where 's' as in (0,1] is the 
+inverse-gamma IG(1/2, s^2*N/2) prior on 'g', where 's' as in is the 
 scale factor hyper-parameter. Based on user choice, Vectorized Adaptive Quadrature 
 or high-precision numerical integration using Variable-Precision Arithmetic is 
 utilized to integrate the likelihood.
