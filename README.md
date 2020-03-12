@@ -7,16 +7,16 @@
 
 linearReg_R2stat computes the BF (ratio between marginal likelihoods) by 
 comparing a target regression model to the Null (intercept only). It can be used 
-without having access to the full dataset, by utilizing only the ordinary R^2 
+without having access to the full dataset, by just utilizing the ordinary R^2 
 (coeff. of determination) test statistic obtained as a result of the underlying 
 regression design.
 
 Methodology: Laplace approximation to BF under Zellner-Siow prior 
-(on model params) as a mixture of g-priors is utilized. That is, an inverse-gamma 
-IG(1/2, s^2*N/2) prior on 'g', where 's' as in (0,1] is the scale factor 
-hyper-parameter. Based on user choice, numerical integration of the likelihood 
-is carried out via Vectorized Adaptive Quadrature or High-Precision Numerical 
-Integration using Variable-Precision Arithmetic.
+(on model parameters) as a mixture of g-priors is utilized. That is, an 
+inverse-gamma IG(1/2, s^2*N/2) prior on 'g', where 's' as in (0,1] is the 
+scale factor hyper-parameter. Based on user choice, Vectorized Adaptive Quadrature 
+or high-precision numerical integration using Variable-Precision Arithmetic is 
+utilized to integrate the likelihood.
 
 This repository provides the MATLAB implementation of the methodology covered in
 \[ [1](http://dx.doi.org/10.1080/00273171.2012.734737) \] & 
