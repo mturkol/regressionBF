@@ -14,9 +14,9 @@ regression design.
 Methodology: Laplace approximation to BF under Zellner-Siow prior 
 (on model parameters) as a mixture of g-priors is utilized. That is, an 
 inverse-gamma IG(1/2, s^2*N/2) prior on 'g', where 's' is the scale factor 
-hyper-parameter. Based on user choice, Vectorized Adaptive Quadrature or 
-high-precision numerical integration using Variable-Precision Arithmetic is 
-utilized to integrate the likelihood.
+hyper-parameter and 'N' is the number of samples/observations. Based on user choice, 
+Vectorized Adaptive Quadrature or high-precision numerical integration using 
+Variable-Precision Arithmetic is utilized to integrate the likelihood.
 
 This repository provides the MATLAB implementation of the methodology covered in
 \[ [1](http://dx.doi.org/10.1080/00273171.2012.734737) \] & 
