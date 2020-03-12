@@ -139,13 +139,13 @@ RouderOpts =
   | `'s'`        | prior scale factor, DEFAULT - 'medium'.                                                |
   |              | (real, positive, scalar) (0, 1]                                                        |
   |              |          OR                                                                            |
-  |              | (char-array) as in {'medium', 'wide', 'ultrawide'}		                          |
+  |              | (char-array) preset as in {'medium', 'wide', 'ultrawide'}		                  |
   |              |   'medium': 0.3535, 'wide': 0.50, 'ultrawide': 0.7071		                  |
   | `'useVpa'`   | Logical to utilize Variable-Precision Arithmetic in Bf computation, DEFAULT - 'false'. |
-  |              |   true  - vpaintegral() for High-Precision Numerical Integration (Symbolic Toolbox R2016b and above*)|
+  |              |   true  - vpaintegral() for High-Precision Numerical Integration (*Symbolic Toolbox R2016b and above*)|
   |              |   false - integral() for Vectorized Adaptive Quadrature                                |                
   | `'lvlTol'`   | Level of tolerance for convergence of integrator, DEFAULT - 'Mdefault'.                |
-  |              | (char-array) as in {'Mdefault', 'Rdefault', 'medium', 'low', 'verylow'}                |
+  |              | (char-array) preset as in {'Mdefault', 'Rdefault', 'medium', 'low', 'verylow'}         |
   |              |   'Mdefault' -> (relTol: 1e-6, absTol: 1e-10)                                          |
   |              |   'Rdefault' -> (relTol: eps('double')^0.25, absTol: eps('double')^0.25)               |
   |              |   'medium'   -> (relTol: 1e-10, absTol: 1e-12)                                         |
