@@ -144,16 +144,16 @@ RouderOpts =
   | `'useVpa'`   | Logical to utilize Variable-Precision Arithmetic in Bf computation, DEFAULT - 'false'. |
   |              |   true  - vpaintegral() for High-Precision Numerical Integration (*Symbolic Toolbox R2016b and above*)|
   |              |   false - integral() for Vectorized Adaptive Quadrature                                |                
-  | `'lvlTol'`   | Level of tolerance for convergence of integrator, DEFAULT - 'Mdefault'.                |
+  | `'lvlTol'`   | Preset level of convergence tolerances in numerical integration, DEFAULT - 'Mdefault'. |
   |              | (char-array) preset as in {'Mdefault', 'Rdefault', 'medium', 'low', 'verylow'}         |
   |              |   'Mdefault' -> (relTol: 1e-6, absTol: 1e-10)                                          |
   |              |   'Rdefault' -> (relTol: eps('double')^0.25, absTol: eps('double')^0.25)               |
   |              |   'medium'   -> (relTol: 1e-10, absTol: 1e-12)                                         |
   |              |   'low'      -> (relTol: 50*eps, absTol: 1e-14)                                        |
   |              |   'verylow'  -> (relTol: 5*eps, absTol: 1e-15)                                         |
-  | `'relTol'`   | Relative tolerance value, DEFAULT - 1e-6.                                              |
+  | `'relTol'`   | Relative tolerance value for convergence criterion in numerical integration, DEFAULT - 1e-6.                                              |
   |              | (real, scalar double) [0, Inf]                                                         |
-  | `'absTol'`   | Absolute tolerance value, DEFAULT - 1e-10.                                             |
+  | `'absTol'`   | Absolute tolerance value for convergence criterion in numerical integration, DEFAULT - 1e-10.                                             |
   |              | (real, scalar double) [0, Inf]                                                         |
   | `'simple'`   | Logical to return the Bf in raw form, DEFAULT - false.                                 | 
   |              |   true  -  the raw Bayes factor 'Bf'                                                   |
