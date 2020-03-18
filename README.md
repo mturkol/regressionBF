@@ -3,7 +3,7 @@
 > [linearReg_R2stat](/linearReg_R2stat.m) - a function to compute the Null-based 
 > Bayes Factor (BF) for evidence quantification and model selection through 
 > Bayesian hypothesis testing in Multivariate Regression designs. 
-> Written by [Mert Türkol](mailto:mturkol_at_gmail_dot_com), (c) 2019.
+> Written in MATLAB by [Mert Türkol](mailto:mturkol_at_gmail_dot_com), (c) 2019.
 
 linearReg_R2stat computes the BF (ratio between marginal likelihoods) by 
 comparing a target regression model to the Null (intercept only). It can be used 
@@ -12,15 +12,13 @@ without having access to the full dataset, by just utilizing the ordinary R^2
 regression design.
 
 **Methodology:** Laplace approximation to BF under Zellner-Siow prior 
-(on model parameters) as a mixture of g-priors is used. This results in an 
+(on model parameters) as a mixture of g-priors is used 
+\[ [1](http://dx.doi.org/10.1080/00273171.2012.734737) \]. This results in an 
 inverse-gamma prior: *g ~ IG(1/2, s^2 \* N/2)*, where 's' is the scale factor 
-hyper-parameter and 'N' is the number of samples/observations. Based on user choice, 
-Vectorized Adaptive Quadrature or high-precision numerical integration using 
-Variable-Precision Arithmetic is utilized to integrate the likelihood.
-
-This repository provides the MATLAB implementation of the methodology covered in
-\[ [1](http://dx.doi.org/10.1080/00273171.2012.734737) \] & 
-\[ [2](https://www.tandfonline.com/doi/abs/10.1198/016214507000001337) \].
+hyper-parameter and 'N' is the number of samples/observations 
+\[ [2](https://www.tandfonline.com/doi/abs/10.1198/016214507000001337) \]. 
+Based on user choice, Vectorized Adaptive Quadrature or high-precision numerical 
+integration using Variable-Precision Arithmetic is utilized to integrate the likelihood.
 
 ## Table of Contents
 
