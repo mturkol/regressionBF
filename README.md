@@ -12,9 +12,9 @@ without having access to the full dataset, by just utilizing the ordinary R^2
 regression design.
 
 **Methodology:** Laplace approximation to BF under Zellner-Siow prior 
-(on model parameters) as a mixture of g-priors is used 
-\[ [1](http://dx.doi.org/10.1080/00273171.2012.734737) \]. This results in an 
-inverse-gamma prior: *g ~ IG(1/2, s^2 \* N/2)*, where 's' is the scale factor 
+(on model parameters) as a mixture of g-priors 
+\[ [1](http://dx.doi.org/10.1080/00273171.2012.734737) \] is used. This results 
+in an inverse-gamma prior: *g ~ IG(1/2, s^2 \* N/2)*, where 's' is the scale factor 
 hyper-parameter and 'N' is the number of samples/observations 
 \[ [2](https://www.tandfonline.com/doi/abs/10.1198/016214507000001337) \]. 
 Based on user choice, Vectorized Adaptive Quadrature or high-precision numerical 
