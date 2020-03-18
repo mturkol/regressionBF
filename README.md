@@ -11,7 +11,7 @@ without having access to the full dataset, by just utilizing the ordinary R^2
 (coeff. of determination) test statistic obtained as a result of the underlying 
 regression design.
 
-Methodology: Laplace approximation to BF under Zellner-Siow prior 
+**Methodology:** Laplace approximation to BF under Zellner-Siow prior 
 (on model parameters) as a mixture of g-priors is used. This results in an 
 inverse-gamma prior: *g ~ IG(1/2, s^2 \* N/2)*, where 's' is the scale factor 
 hyper-parameter and 'N' is the number of samples/observations. Based on user choice, 
