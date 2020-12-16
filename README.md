@@ -3,7 +3,7 @@
 > [linearReg_R2stat](/linearReg_R2stat.m) - a function to compute the Null-based 
 > Bayes Factor (BF) for evidence quantification and model selection through 
 > Bayesian hypothesis testing in Multivariate Regression designs. 
-> Written in MATLAB by [Mert Türkol](mailto:mturkol_at_gmail_dot_com), (c) 2019.
+> Written in MATLAB by Mert Türkol, (c) 2019.
 
 linearReg_R2stat computes the BF (ratio between marginal likelihoods) by 
 comparing a target regression model to the Null (intercept only). It can be used 
